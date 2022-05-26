@@ -15,15 +15,13 @@
 </head>
 
 <body>
-
-                <input id="yang" placeholder="阳寿" type="number"/>
-                <input id="san" type="number" placeholder="善">
-                <input id="we" type="number" placeholder="恶">
-                <input id="zuyu" type="number" placeholder="卒于">
-                <span id="text">未知</span>
-                <button id="btn">计算</button>
-                <button id="reset">重置</button>
-
+    <input id="yang" placeholder="阳寿" type="number" />
+    <input id="san" type="number" placeholder="善">
+    <input id="we" type="number" placeholder="恶">
+    <input id="zuyu" type="number" placeholder="卒于">
+    <span id="text">未知</span>
+    <button id="btn">计算</button>
+    <button id="reset">重置</button>
 </body>
 <script>
     let y = document.getElementById('yang');
@@ -31,47 +29,38 @@
     let ss = document.getElementById('san')
     let ee = document.getElementById('we')
     let z = document.getElementById('zuyu')
-    btn.onclick = function(){
+    btn.onclick = function () {
         let ys = Number(y.value);
         let san = Number(ss.value);
         let we = Number(ee.value);
         let zuyu = Number(z.value);
-        let num = ys + (san*1 - we*2 ) - zuyu;
-        if(num >=1){
+        let num = ys + (san * 1 - we * 2) - zuyu;
+        if (num >= 1) {
             text.innerHTML = "阳寿未尽"
         }
-        if(num === 0){
+        if (num === 0) {
             text.innerHTML = "寿终入薄"
         }
-        if(num<0){
+        if (num < 0) {
             text.innerHTML = "打入地狱"
         }
     }
-    reset.onclick = function(){
+    reset.onclick = function () {
         y.value = ''
         ss.value = ''
         ee.value = ''
-        z.value =''
+        z.value = ''
     }
-    document.onkeydown = function(e){
-        if(e.keyCode === 13){
+    document.onkeydown = function (e) {
+        if (e.keyCode === 13) {
             btn.onclick()
         }
-        if(e.keyCode === 8){
+        if (e.keyCode === 8) {
             reset.onclick()
             y.focus()
             text.innerHTML = "未知"
         }
     }
-    // `
-    //         杏花风	防具	手部	无	58    流云玉镯	防具	手部	无	52
-    //         芙蓉月	防具	鞋子	无	56    一方	防具	鞋子	无	40
-    //         云雪	防具	项链	无	60    清秋长链	防具	项链	无	65
-    //         飞雪    鞋子  未知
-    //         `;
-        // 当前播放  其余不能播放  知道当前的下标
-        // 1 用开关 点击播放时 检测 有没有处于加载状态 或者播放状态 如果有 关掉他
-        // 2 禁止点击  当前的加载中 其他的 不能点击
 </script>
 
 </html>
